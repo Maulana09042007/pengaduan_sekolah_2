@@ -5,8 +5,15 @@
  */
 
 require_once '../functions/functions.php';
-check_siswa();
-
+// check_siswa();
+ check_login();
+    
+    // Cek role
+    if ($_SESSION['role'] !== 'siswa') {
+        // Bukan siswa → tidak boleh akses
+        header("Location: ../index.php");
+        exit();
+        }
 $base_url = '../';
 $page_title = 'Buat Aspirasi Baru';
 
